@@ -1,0 +1,37 @@
+@import './../../assets/styles/partials/mixins';
+
+.header {
+  &__nav-list-item {
+    list-style-type: none;
+    margin-left: 35px;
+
+    @include media-breakpoint-up(lg) {
+      margin-left: 24px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    >a {
+      font-weight: bold;
+      display: block;
+      color: neon-color(branco);
+
+      &:not(.button) {
+        text-transform: lowercase;
+        transition: color 300ms ease;
+        @include neon-font(s);
+
+        @include media-breakpoint-up(xl) {
+          @include neon-font(m);
+        }
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: neon-color(branco);
+      }
+    }
+  }
+}

@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from 'react';
+import './App.scss';
+import { Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
+import HeaderMobile from './components/HeaderMobile';
 
-function App() {
+const Modular = React.lazy(() => import('./views/Modular'));
+
+const App = () => {
+  const routes = (
+    <Switch>
+      <Route path="/" render={() => <Modular />} />
+    </Switch>
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="header__background-container">
+      <Header />
+      <div id="content-wrapper" className="main-content-wrapper">
+        <Suspense fallback="Loading...">{routes}</Suspense>
+      </div>
+      <HeaderMobile />
     </div>
   );
-}
+};
 
 export default App;

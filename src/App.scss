@@ -1,0 +1,21 @@
+@import '@neon-pagamentos/neon-components/styles/neon-foundation';
+
+.modular {
+  &__banner {
+    margin-top: 40px;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 0 15px 40px;
+
+    section > .container,
+    &__banner .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &.produtos {
+      background: neon-color(cinza-claro);
+    }
+  }
+}

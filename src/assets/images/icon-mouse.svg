@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="icon-mouse" transform="translate(-669.5 -587)">
+    <path id="Rounded_Rectangle_1726" class="cls-1" d="M13.5,1h0A12.5,12.5,0,0,1,26,13.5v15A12.5,12.5,0,0,1,13.5,41h0A12.5,12.5,0,0,1,1,28.5v-15A12.5,12.5,0,0,1,13.5,1Z" transform="translate(669.5 587)"/>
+    <path id="Rounded_Rectangle_1726_copy" class="cls-2" d="M13.5,7h0A2.476,2.476,0,0,1,16,9.5h0A2.476,2.476,0,0,1,13.5,12h0A2.476,2.476,0,0,1,11,9.5h0A2.476,2.476,0,0,1,13.5,7Z" transform="translate(669.5 587)"/>
+  </g>
+</svg>
