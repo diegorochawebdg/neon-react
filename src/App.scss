@@ -8,7 +8,7 @@
   @include media-breakpoint-down(md) {
     padding: 0 15px 40px;
 
-    section > .container,
+    section>.container,
     &__banner .container {
       padding-left: 0;
       padding-right: 0;
@@ -16,6 +16,35 @@
 
     &.produtos {
       background: neon-color(cinza-claro);
+    }
+  }
+}
+
+.main-content-wrapper {
+  $i: &;
+
+  &--hidden {
+    position: absolute;
+    z-index: 12;
+  }
+
+  position: relative;
+  z-index: 9;
+  transform-origin: center left;
+  background: neon-color(branco);
+  transition: all 500ms ease;
+
+  @include media-breakpoint-down(lg) {
+    .is-mobile-menu-opened & {
+      border-radius: 20px;
+      transform: scale(0.7) translateX(100vw);
+    }
+
+    .has-transitions & {
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100); // para browsers que não suportarem a declaração calc + var
+      width: 100vw;
+      overflow: hidden;
     }
   }
 }

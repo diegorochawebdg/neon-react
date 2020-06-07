@@ -288,19 +288,21 @@ const headerMockLinks = [
 
 const HeaderLinks: React.FC = () => {
   return (
-    <li className="header__nav-list-item">
+    <>
       {headerMockLinks.map((link) => {
         return link.url.includes('//') ? (
-          <NavLink key={link.ID} to={link.url}>
-            {link.title}
-          </NavLink>
+          <li key={link.ID} className="header__nav-list-item">
+            <NavLink to={link.url}>{link.title}</NavLink>
+          </li>
         ) : (
-          <a key={link.ID} href={link.url} rel="noopener">
-            {link.title}
-          </a>
+          <li key={link.ID} className="header__nav-list-item">
+            <a href={link.url} rel="noopener">
+              {link.title}
+            </a>
+          </li>
         );
       })}
-    </li>
+    </>
   );
 };
 
