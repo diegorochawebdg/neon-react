@@ -1,4 +1,4 @@
-@import '@neon-pagamentos/neon-components/styles/partials/mixins';
+@import '~@neon-pagamentos/neon-components/styles/partials/mixins';
 
 $z-index-header: 10;
 
@@ -48,7 +48,7 @@ $z-index-header: 10;
     justify-content: flex-end;
   }
 
-  &.is-scrolling {
+  &.is-sticky {
     height: 70px;
     background: neon-color(branco);
 
@@ -67,7 +67,7 @@ $z-index-header: 10;
     }
   }
 
-  &:not(.is-scrolling) {
+  &:not(.is-sticky) {
     #{$i}__logo {
       filter: brightness(0) invert(1);
     }
@@ -238,21 +238,6 @@ $z-index-header: 10;
   }
 }
 
-.main-content-wrapper {
-  $i: &;
-
-  &--hidden {
-    position: absolute;
-    z-index: 12;
-  }
-
-  position: relative;
-  z-index: $z-index-header - 1;
-  transform-origin: center left;
-  background: neon-color(branco);
-  transition: all 500ms ease;
-}
-
 @include media-breakpoint-down(lg) {
   .header__background-container {
     @include neon-gradient;
@@ -263,20 +248,6 @@ $z-index-header: 10;
       width: 100%;
       height: 100vh; // para browsers que não suportarem a declaração calc + var
       height: calc(var(--vh, 1vh) * 100);
-    }
-  }
-
-  .main-content-wrapper {
-    .is-mobile-menu-opened & {
-      border-radius: 20px;
-      transform: scale(.7) translateX(100vw);
-    }
-
-    .has-transitions & {
-      height: 100vh;
-      height: calc(var(--vh, 1vh) * 100); // para browsers que não suportarem a declaração calc + var
-      width: 100vw;
-      overflow: hidden;
     }
   }
 }
