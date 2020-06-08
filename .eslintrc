@@ -74,6 +74,9 @@
     "import/extensions": "off",
     "import/no-named-as-default": "off",
     "import/no-named-as-default-name": "off",
-    "react/no-danger": "off"
+    "react/no-danger": "off",
+    "no-param-reassign": ["error", {
+      "props": false
+    }]
   }
 }
