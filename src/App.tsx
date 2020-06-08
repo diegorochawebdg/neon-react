@@ -13,6 +13,7 @@ const App = () => {
 
   const routes = (
     <Switch>
+      <Route path="/produtos" render={() => <Modular />} />
       <Route path="/" render={() => <Modular />} />
     </Switch>
   );
