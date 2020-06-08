@@ -286,19 +286,23 @@ const headerMockLinks = [
   },
 ];
 
-const HeaderLinks: React.FC = () => {
+interface IHeaderLinks {
+  linkClass: string;
+}
+
+const HeaderLinks: React.FC<IHeaderLinks> = (props) => {
   return (
     <>
       {headerMockLinks.map((link) => {
         return link.url.includes('//') ? (
-          <li key={link.ID} className="header__nav-list-item">
-            <NavLink to={link.url}>{link.title}</NavLink>
-          </li>
-        ) : (
-          <li key={link.ID} className="header__nav-list-item">
-            <a href={link.url} rel="noopener">
+          <li key={link.ID} className={props.linkClass}>
+            <a href={link.url} target="_blank" rel="noreferrer">
               {link.title}
             </a>
+          </li>
+        ) : (
+          <li key={link.ID} className={props.linkClass}>
+            <NavLink to={link.url}>{link.title}</NavLink>
           </li>
         );
       })}
