@@ -1,13 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
+import './index.scss';
+
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import './index.scss';
-import Logo from '../Logo';
+import { toggleMobileMenu } from '../../features/mobileMenu/mobileMenuSlice';
 import HeaderLinks from '../HeaderLinks';
+import Logo from '../Logo';
 
 const Header: React.FC = () => {
   const [sticky, setSticky] = useState<boolean>(false);
   const headerEl = useRef<HTMLDivElement>(document.createElement('div'));
+  const dispatch = useDispatch();
 
   const toggleHeaderStick = () => {
     setSticky(window.pageYOffset >= 50);
@@ -20,10 +24,6 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', toggleHeaderStick);
     };
   });
-
-  const toggleMobileMenu = () => {
-    alert('clicked');
-  };
 
   return (
     <div className="header__background-container">
@@ -46,7 +46,7 @@ const Header: React.FC = () => {
               <button
                 type="button"
                 className="header__mobile-menu-toggle"
-                onClick={toggleMobileMenu}
+                onClick={() => dispatch(toggleMobileMenu())}
               >
                 Abrir/fechar menu
               </button>
