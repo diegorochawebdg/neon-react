@@ -1,10 +1,10 @@
 import './index.scss';
 
+import { toggleMobileMenu } from 'features/mobileMenu/mobileMenuSlice';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { toggleMobileMenu } from '../../features/mobileMenu/mobileMenuSlice';
 import HeaderLinks from '../HeaderLinks';
 import Logo from '../Logo';
 
