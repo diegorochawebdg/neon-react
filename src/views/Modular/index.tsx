@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { RouteComponentProps } from 'react-router-dom';
-import { Container } from './styles';
+import { RouteComponentProps, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { hidePreloader } from 'features/preloader/preloaderSlice';
 import Hero from '../../components/Hero';
 import IHero from '../../interfaces/Hero.interface';
 
@@ -19,6 +20,15 @@ const heroMock: IHero = {
 };
 
 const Modular: React.FC<RouteComponentProps> = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      dispatch(hidePreloader());
+    }, 1000);
+  }, [location, dispatch]);
+
   return <Hero content={heroMock} />;
 };
 

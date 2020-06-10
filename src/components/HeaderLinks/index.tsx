@@ -296,7 +296,7 @@ const HeaderLinks: React.FC<IHeaderLinks> = (props) => {
       {headerMockLinks.map((link) => {
         return link.url.includes('//') ? (
           <li key={link.ID} className={props.linkClass}>
-            <a href={link.url} target="_blank" rel="noreferrer">
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
               {link.title}
             </a>
           </li>

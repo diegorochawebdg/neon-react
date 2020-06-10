@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import './App.scss';
 import { Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Preloader from 'components/Preloader';
 import Header from './components/Header';
 import HeaderMobile from './components/HeaderMobile';
 import { RootState } from './reducers';
@@ -29,6 +30,7 @@ const App = () => {
         <Suspense fallback="Loading...">{routes}</Suspense>
       </div>
       <HeaderMobile />
+      <Preloader />
     </div>
   );
 };

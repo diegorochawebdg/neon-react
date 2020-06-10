@@ -3,7 +3,7 @@ import './index.scss';
 import { toggleMobileMenu } from 'features/mobileMenu/mobileMenuSlice';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import HeaderLinks from '../HeaderLinks';
 import Logo from '../Logo';
@@ -12,7 +12,6 @@ const Header: React.FC = () => {
   const [sticky, setSticky] = useState<boolean>(false);
   const headerEl = useRef<HTMLDivElement>(document.createElement('div'));
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const toggleHeaderStick = () => {
     setSticky(window.pageYOffset >= 50);
