@@ -4,7 +4,7 @@ import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import App from './App';
+import Root from 'utils/Root';
 import * as serviceWorker from './serviceWorker';
 import { rootReducer } from './reducers';
 
@@ -16,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <App />
+        <Root />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
