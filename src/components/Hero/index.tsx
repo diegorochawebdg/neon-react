@@ -1,23 +1,30 @@
 import React from 'react';
 
-import { IHeroProps } from '../../interfaces/Hero.interface';
-import { HeroContainer } from './styles';
+import { useLocation } from 'react-router-dom';
+import { IHeroProps } from 'interfaces/Hero.interface';
+import './index.scss';
+import Markdown from 'markdown-to-jsx';
 
 const Hero: React.FC<IHeroProps> = (props) => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
-    <HeroContainer>
+    <section className={`section-hero ${isHome ? 'home' : location.pathname}`}>
       <div className="container">
         <div className="row">
           <div
-            className="col-md-10 col-sm-12"
-            dangerouslySetInnerHTML={{ __html: props.content?.hero_text }}
-          />
+            className={`section-hero__text-wrapper color-branco ${
+              !isHome ? 'offset-md-1 col-md-10 col-sm-12' : ''
+            }`}
+          >
+            <Markdown>{props.content?.heroText}</Markdown>
+          </div>
         </div>
       </div>
-    </HeroContainer>
+      <Markdown>{props.content?.additionalContent}</Markdown>
+    </section>
   );
-  // return <div dangerouslySetInnerHTML={props.content?.hero_text as string} />;
-  // return <HeroContainer dangerouslySetInnerHTML={props.content?.hero_text} />;
 };
 
 export default Hero;
