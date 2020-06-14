@@ -31,3 +31,5 @@ export const PreloaderContainer = styled.div<IPreloaderProps>`
 `;
 
 export const PreloaderWrapper = styled.div``;
+
+export const PreloaderAnimationContainer = styled.div``;
