@@ -1,0 +1,227 @@
+@import '~@neon-pagamentos/neon-components/styles/partials/mixins';
+@import '~@neon-pagamentos/neon-components/styles/components/button';
+
+.feature-section {
+  $i: &;
+  margin-top: 50px;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 40px;
+
+    .modular.home & {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+  }
+
+  &[class *= 'bg-'] {
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    @include media-breakpoint-down(md) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+
+  &:not([class *= 'bg-']) {
+    #{$i}__text-column {
+      .produtos & {
+        border-radius: 10px;
+        padding: 40px;
+        background: neon-color(branco);
+      }
+    }
+
+    #{$i}__image-column {
+      img {
+        width: 100%;
+        height: auto;
+
+        @include media-breakpoint-down(md) {
+          max-width: 250px;
+        }
+      }
+    }
+  }
+
+  > div[class*="bg-"] {
+    #{$i}__columns-wrapper {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      border-radius: 10px;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      @include media-breakpoint-down(md) {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__columns-wrapper {
+    min-height: 510px;
+    margin-left: 0;
+    margin-right: 0;
+    align-items: center;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column-reverse !important;
+    }
+
+    &:not([class*="bg-"]) {
+      .feature-section {
+        &__text-wrapper {
+          color: neon-color(cinza-escuro);
+        }
+
+        &__text-tag {
+          background: neon-color(azul-medio);
+          color: neon-color(branco);
+        }
+      }
+    }
+
+    &[class*="bg-"] {
+      .feature-section {
+        &__text-wrapper {
+          color: neon-color(branco);
+
+          .produtos & {
+            color: neon-color(cinza-escuro);
+          }
+        }
+      }
+    }
+  }
+
+  &__icon {
+    max-width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  &__text-wrapper {
+    * {
+      color: inherit;
+    }
+
+    h2,
+    h3 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      @include neon-font(l);
+    }
+
+    p + p {
+      margin-top: 20px;
+    }
+
+    ul {
+      margin-bottom: 20px;
+    }
+
+    li {
+      list-style-position: inside;
+    }
+  }
+
+  &__text-tag {
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 100px;
+    @include neon-font(xxs);
+  }
+
+  &__text {
+    p {
+      letter-spacing: -.2px;
+    }
+
+    ul {
+      margin-top: 20px;
+    }
+
+    .button-full {
+      width: 100%;
+    }
+
+    @include media-breakpoint-down(md) {
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      &:not( .produtos & ) {
+        text-align: center;
+      }
+    }
+  }
+
+  &__image-column {
+    position: relative;
+
+    @include media-breakpoint-down(md) {
+      padding: 20px;
+
+      .modular.produtos-emprestimo-pessoal & {
+        display: none;
+      }
+
+      img {
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .invertido {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  &__text-column {
+    @include media-breakpoint-down(md) {
+      padding: 20px !important;
+      border-radius: 0 0 10px 10px !important;
+    }
+  }
+
+  &__video-box {
+    position: relative;
+    overflow: hidden;
+    width: 350px;
+    height: 701px;
+
+    @include media-breakpoint-down(md) {
+      width: 250px;
+      height: 501px;
+      margin: 20px auto;
+    }
+  }
+
+  &__video-box-image-frame {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__video-box-image-framed {
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-origin: center;
+    transform: translate(-50%, -50%) scale(.94);
+  }
+
+  .modular.home & {
+    #{$i}__columns-wrapper {
+      @include media-breakpoint-down(md) {
+        flex-direction: column !important;
+      }
+    }
+  }
+}

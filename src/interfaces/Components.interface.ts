@@ -1,3 +1,4 @@
+import ISectionFeature from 'interfaces/SectionFeatureContent.interface';
 import IHero from './Hero.interface';
 
 export interface IComponentsSettings {
@@ -8,4 +9,5 @@ export interface IComponentsSettings {
 
 export default interface IComponents extends IComponentsSettings {
   Hero: IHero;
+  SectionFeatureContent: ISectionFeature[];
 }
