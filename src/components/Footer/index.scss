@@ -1,0 +1,153 @@
+@import '~@neon-pagamentos/neon-components/styles/partials/mixins';
+
+/**
+ * Social Media
+ **/
+$social-media: facebook linkedin twitter instagram youtube;
+@mixin neon-social-medias {
+  @each $social in $social-media {
+    &--#{$social} {
+      background: url('/assets/images/footer/icon-#{$social}.svg') no-repeat center/cover;
+    }
+  }
+}
+
+.footer {
+  $i: &;
+  padding: 20px 0;
+  text-align: center;
+
+  &__social-nav {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__social-link {
+    font-size: 0;
+    display: inline-block;
+    transition: opacity 300ms ease;
+    @include size(30px);
+    @include neon-social-medias();
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &:not( :first-child ) {
+      margin-left: 20px;
+    }
+
+    @include media-breakpoint-down(md) {
+      @include size(40px);
+    }
+  }
+
+  &__footer-nav {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      border-top: solid 1px neon-color(cinza-escuro);
+    }
+  }
+
+  &__nav-list-item {
+    list-style-type: none;
+    display: inline-block;
+
+    &:last-child #{$i}__nav-link::after {
+      display: none;
+    }
+
+    @include media-breakpoint-down(md) {
+      display: block;
+    }
+  }
+
+  &__nav-link {
+    font-weight: bold;
+    text-transform: lowercase;
+    line-height: 1.5em;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: neon-color(azul-medio);
+    text-decoration: none;
+    @include neon-font(xs);
+
+    &::after {
+      content: '•';
+      margin: 0 10px;
+    }
+
+    @include media-breakpoint-down(md) {
+      display: block;
+      margin-bottom: 0;
+      line-height: 60px;
+      @include neon-font(default);
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__contact-wrapper {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top: solid 1px neon-color(cinza-escuro);
+    border-bottom: solid 1px neon-color(cinza-escuro);
+
+    > p {
+      margin-bottom: 0;
+      font-weight: bold;
+      display: block;
+      padding: 5 0px;
+      @include neon-font(xs);
+
+      > span {
+        color: neon-color(azul-claro);
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      padding: 20px 0;
+    }
+  }
+
+  &__copyright {
+    padding: 10px;
+    display: block;
+    text-align: center;
+
+    small,
+    p,
+    li {
+      display: block;
+      @include neon-font(xxs);
+    }
+
+    span,
+    a {
+      font: inherit;
+      color: inherit;
+    }
+
+    li {
+      list-style-type: none;
+
+      > span {
+        font-weight: bold;
+        display: inline-block;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      padding: 10px 0 0;
+    }
+  }
+}
