@@ -22,17 +22,17 @@
 
 .main-content-wrapper {
   $i: &;
+  position: relative;
+  z-index: 9;
+  transform-origin: center left;
+  background: neon-color(branco);
+  transition: all 500ms ease;
 
   &--hidden {
     position: absolute;
     z-index: 12;
   }
 
-  position: relative;
-  z-index: 9;
-  transform-origin: center left;
-  background: neon-color(branco);
-  transition: all 500ms ease;
 
   @include media-breakpoint-down(lg) {
     .is-mobile-menu-opened & {
